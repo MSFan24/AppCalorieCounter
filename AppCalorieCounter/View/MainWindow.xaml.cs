@@ -20,5 +20,10 @@ namespace AppCalorieCounter
         {
             InitializeComponent();
         }
+
+        private void Button_Click()
+        {
+
+        }
     }
 }

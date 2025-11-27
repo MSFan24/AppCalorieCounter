@@ -5,8 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppCalorieCounter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Приложение по расчету каллорий" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
+        <!--Меню-->
+        <Menu Width="120" Height="20"  VerticalAlignment="Top" HorizontalAlignment="Left">
+            <MenuItem Header="Фаил" Height="20" Width="50"></MenuItem>
+            <MenuItem Header="Помощь"></MenuItem>
+        </Menu>
+        <!--Вкладки-->
+        <TabControl  Width="800" Height="416" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,18,0,0" >
+            <!--Вкладки 1-->
+            <TabItem Header="Стартовое меню"  >
+                <Grid Background="Green">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="Для того чтобы приступить к работе выберете одну из вкладок согласно вашим целям"/>
+                </Grid>
+            </TabItem>
+            <!--Вкладки 2-->
+            <TabItem Header="Расчет калорий в продукте" >
+                <!--Вкладки 2.1 -->
+                <TabControl>
+                    <TabItem Header ="Добавление в корзину">
+                        <Grid Background="Yellow">
+                            <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" Text="Вкладка 2.1"/>
+                        </Grid>
+                    </TabItem>
+                    <!--Вкладки 2.2 -->
+                    <TabItem Header ="Обзор корзины">
+                        <Grid Background="Blue">
+                            <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" Text="Вкладка 2.2"/>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
 
+            </TabItem>
+            <!--Вкладки 3-->
+            <TabItem Header="Расчет калорийности для целей">
+                <Grid Background="Red">
+                    <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" Text="Вкладка 3"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
