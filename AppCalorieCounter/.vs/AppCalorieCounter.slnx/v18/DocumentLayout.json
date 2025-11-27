@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DDF65D66-C7B9-4605-8B54-6DAFCC78037F}|AppCalorieCounter.csproj|c:\\users\\pc\\desktop\\appcaloriecounter\\appcaloriecounter\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{DDF65D66-C7B9-4605-8B54-6DAFCC78037F}|AppCalorieCounter.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|c:\\users\\pc\\desktop\\appcaloriecounter\\appcaloriecounter\\viewmodel\\command\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|solutionrelative:viewmodel\\command\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDF65D66-C7B9-4605-8B54-6DAFCC78037F}|AppCalorieCounter.csproj|c:\\users\\pc\\desktop\\appcaloriecounter\\appcaloriecounter\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DDF65D66-C7B9-4605-8B54-6DAFCC78037F}|AppCalorieCounter.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|c:\\users\\pc\\desktop\\appcaloriecounter\\appcaloriecounter\\viewmodel\\viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|solutionrelative:viewmodel\\viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|c:\\users\\pc\\desktop\\appcaloriecounter\\appcaloriecounter\\viewmodel\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|solutionrelative:viewmodel\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|c:\\users\\pc\\desktop\\appcaloriecounter\\appcaloriecounter\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|c:\\users\\pc\\desktop\\appcaloriecounter\\appcaloriecounter\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|solutionrelative:view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|c:\\users\\pc\\desktop\\appcaloriecounter\\appcaloriecounter\\view\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|solutionrelative:view\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,23 +43,74 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "RelayCommand.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\ViewModel\\Command\\RelayCommand.cs",
+              "RelativeDocumentMoniker": "ViewModel\\Command\\RelayCommand.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\ViewModel\\Command\\RelayCommand.cs",
+              "RelativeToolTip": "ViewModel\\Command\\RelayCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T15:28:31.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\ViewModel\\ViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel\\ViewModel.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\ViewModel\\ViewModel.cs",
+              "RelativeToolTip": "ViewModel\\ViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T15:27:01.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ViewModelBase.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\ViewModel\\ViewModelBase.cs",
+              "RelativeDocumentMoniker": "ViewModel\\ViewModelBase.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\ViewModel\\ViewModelBase.cs",
+              "RelativeToolTip": "ViewModel\\ViewModelBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T15:20:46.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-27T15:19:36.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\MainWindow.xaml",
-              "RelativeToolTip": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\View\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "View\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\View\\MainWindow.xaml",
+              "RelativeToolTip": "View\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-11-25T12:59:30.961Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\MainWindow.xaml.cs",
-              "RelativeToolTip": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\View\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "View\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\View\\MainWindow.xaml.cs",
+              "RelativeToolTip": "View\\MainWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-25T12:59:29.816Z",
