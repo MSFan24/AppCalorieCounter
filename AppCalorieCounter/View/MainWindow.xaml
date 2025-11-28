@@ -36,7 +36,6 @@
                         </Grid>
                     </TabItem>
                 </TabControl>
-
             </TabItem>
             <!--Вкладки 3-->
             <TabItem Header="Расчет калорийности для целей">
