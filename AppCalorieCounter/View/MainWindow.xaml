@@ -8,9 +8,9 @@
         mc:Ignorable="d"
         Title="Приложение по расчету каллорий" Height="450" Width="800" WindowStartupLocation="CenterScreen" >
 
-    <!--<Window.DataContext>
+    <Window.DataContext>
         <vm:ViewModel/>
-    </Window.DataContext>-->
+    </Window.DataContext>
     
     <Grid>
         <!--Меню-->
@@ -35,37 +35,36 @@
                             <StackPanel  Margin="10,0,0,0" Height="340 " Width="200" VerticalAlignment="Center" HorizontalAlignment="Left" Background="MediumPurple">
                                 <!--Название продукта -->
                                 <TextBlock Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="200" Height="20" Text="Название продукта" TextAlignment="Center"   Background="LightSeaGreen"/>
-                                <TextBox Margin="0,10,0,0"  TextAlignment="Center"  Background="LightYellow" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200"/>
+                                <TextBox  Text="{Binding ProductName,UpdateSourceTrigger=PropertyChanged}"  Margin="0,10,0,0"  TextAlignment="Center"  Background="LightYellow" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200"/>
                                 <!--Калорийность на 100 ... -->
                                 <TextBlock  Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="200" Height="20" Text="Калорийность на 100 ..."  Background="LightSeaGreen" TextAlignment="Center"/>
-                                <TextBox  Margin="0,10,0,0"  TextAlignment="Center"  Background="LightYellow" HorizontalAlignment="Left" Width="200" Height="30" VerticalAlignment="Top"/>
+                                <TextBox  Text="{Binding ProductCallIn100,UpdateSourceTrigger=PropertyChanged}" Margin="0,10,0,0"  TextAlignment="Center"  Background="LightYellow" HorizontalAlignment="Left" Width="200" Height="30" VerticalAlignment="Top"/>
                                 <!--Объем/масса продукта -->
                                 <TextBlock Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="200" Height="20" Text="Объем/масса продукта" TextAlignment="Center"  Background="LightSeaGreen"/>
-                                <TextBox  Margin="0,10,0,0"  TextAlignment="Center"  Background="LightYellow" HorizontalAlignment="Left" Width="200" Height="30" VerticalAlignment="Top"/>
+                                <TextBox  Text="{Binding ProductQuantity,UpdateSourceTrigger=PropertyChanged}" Margin="0,10,0,0"  TextAlignment="Center"  Background="LightYellow" HorizontalAlignment="Left" Width="200" Height="30" VerticalAlignment="Top"/>
                                 <!--Система измерения -->
                                 <TextBlock Margin="0,10,0,0" HorizontalAlignment="Left"  Width="200" Height="34" TextAlignment="Center"  Background="LightSeaGreen"><Run Text="Система измерения"/><LineBreak/><Run/><Run Language="ru-ru" Text=" (по умолчанию в граммах)"/></TextBlock>
-                                <CheckBox  Content="Mл" Margin="0,10,0,0" Height="20" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                <CheckBox IsChecked="{Binding MeasurementSystemIsChecked,UpdateSourceTrigger=PropertyChanged }" Content="Mл" Margin="0,10,0,0" Height="20" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                 <!--Кнопка добавить продукт-->
-                                <Button Width="200" Height="40" Content="Добавить продукт"/>
+                                <Button Width="200" Height="40" Content="Добавить продукт" Command="{Binding AddNewProductInDBCommand,UpdateSourceTrigger=PropertyChanged}"/>
 
                             </StackPanel>
                             <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" Text="Вкладка 2.1"/>
-                        </Grid>
+                        </Grid> 
                     </TabItem>
                     <!--Вкладки 2.2 -->
                     <TabItem Header ="Обзор Мои продукты">
                         <Grid Background="Blue">
-                            <DataGrid  Height="300" VerticalAlignment="Top" AutoGenerateColumns="False">>
+                            <DataGrid x:Name="DataGridName"  Height="300" VerticalAlignment="Top" AutoGenerateColumns="False" ItemsSource="{Binding OBList}">
                                 <DataGrid.Columns >
                                     <DataGridCheckBoxColumn Header="Выбрать" />
-                                    <DataGridTextColumn Header="Id" />
-                                    <DataGridTextColumn Header="Продукт" Width="*"/>
-                                    <DataGridTextColumn Header="Объем/масса продукта" Width="*"/>
-                                    <DataGridTextColumn Header="Система измерения" Width="*"/>
+                                    <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                                    <DataGridTextColumn Header="Продукт" Binding="{Binding Name}"  Width="*"/>
+                                    <DataGridTextColumn Header="Каллорийность на 100 грамм/мл продукта" Binding="{Binding Caloric_in_100_units_of_mass}"  Width="*"/>
+                                    <DataGridTextColumn Header="Объем/масса продукта" Binding="{Binding Product_quantity }" Width="*"/>
+                                    <DataGridTextColumn Header="Система измерения" Width="*" Binding="{Binding Measurement_system}"/>
                                 </DataGrid.Columns>
-
                             </DataGrid>
-
                             <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" Text="Вкладка 2.2"/>
                         </Grid>
                     </TabItem>

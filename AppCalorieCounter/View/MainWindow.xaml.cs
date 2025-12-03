@@ -21,7 +21,7 @@ namespace AppCalorieCounter
         public MainWindow()
         {
             InitializeComponent();
-            AppDbContext.EnsureDatabaseCreated();
+            //AppDbContext.EnsureDatabaseCreated();//Создаем БД
         }
     }
 
