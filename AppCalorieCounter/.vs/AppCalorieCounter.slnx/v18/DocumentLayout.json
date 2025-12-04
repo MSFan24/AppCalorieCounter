@@ -56,8 +56,7 @@
               "RelativeToolTip": "ViewModel\\ViewModelBase.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T15:37:56.548Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T15:37:56.548Z"
             },
             {
               "$type": "Document",
@@ -67,29 +66,16 @@
               "RelativeDocumentMoniker": "ViewModel\\ViewModel.cs",
               "ToolTip": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\ViewModel\\ViewModel.cs",
               "RelativeToolTip": "ViewModel\\ViewModel.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAAwFcAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAuwEIAAAC5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-04T12:08:00.874Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CRUD_DB.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\ViewModel\\Command\\CRUD_DB.cs",
-              "RelativeDocumentMoniker": "ViewModel\\Command\\CRUD_DB.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\ViewModel\\Command\\CRUD_DB.cs",
-              "RelativeToolTip": "ViewModel\\Command\\CRUD_DB.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T15:55:19.838Z",
               "EditorCaption": ""
             }
           ]
         },
         {
           "DockedWidth": 1039,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -106,6 +92,19 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CRUD_DB.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\ViewModel\\Command\\CRUD_DB.cs",
+              "RelativeDocumentMoniker": "ViewModel\\Command\\CRUD_DB.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\ViewModel\\Command\\CRUD_DB.cs",
+              "RelativeToolTip": "ViewModel\\Command\\CRUD_DB.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T15:55:19.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\Model\\Product.cs",
@@ -114,8 +113,7 @@
               "RelativeToolTip": "Model\\Product.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T18:08:50.531Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-28T18:08:50.531Z"
             }
           ]
         }

@@ -5,6 +5,8 @@ using AppCalorieCounter.ViewModel.Command;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics.Eventing.Reader;
+using System.Security.Policy;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
@@ -41,14 +43,17 @@ namespace AppCalorieCounter.ViewModel
         #endregion
 
         private Product selectedProduct;
-        public Product SelectedProduct 
+        public Product SelectedProduct
         { get => selectedProduct; 
-          set { selectedProduct = value; OnPropertyChanged(); }
+          set { selectedProduct = value; OnPropertyChanged(); OnselectedProductChanged(value); }
         }
 
+       public event Action<Product> EventHandlerPropertyChanged;
 
-
-
+        protected virtual void OnselectedProductChanged(Product product)
+        {
+            EventHandlerPropertyChanged?.Invoke(product);
+        }
 
         //public void EmptyTextBoxs()//Очистка текбоксов после нажатия кнопки Добавить
         //{
@@ -59,13 +64,23 @@ namespace AppCalorieCounter.ViewModel
 
         //}
 
-        //public void ChangerMethod(Product SelectedProduct)
-        //{
-        //    ProductName = SelectedProduct.Name;
-        //    ProductCallIn100 = SelectedProduct.Caloric_in_100_units_of_mass;
-        //    ProductQuantity = SelectedProduct.Product_quantity;
-        //    MeasurementSystemIsChecked = SelectedProduct.Measurement_system;
-        //}
+        public void Refreh(Product SelectedProduct) //Метод вызывается после того как генерируется событие EventHandlerPropertyChanged которое говорит что в свойство попал новый объект 
+        {
+            ProductName = SelectedProduct.Name;
+            ProductCallIn100 = SelectedProduct.Caloric_in_100_units_of_mass;
+            ProductQuantity = SelectedProduct.Product_quantity;
+            MeasurementSystemIsChecked = SelectedProduct.Measurement_system; 
+        }
+
+
+
+        public void ChangerMethod(Product SelectedProduct)//Метод изменяет тексбоксы после нажатия на кнопку изменить
+        {
+            SelectedProduct.Name = ProductName;
+            SelectedProduct.Caloric_in_100_units_of_mass = ProductCallIn100;
+            SelectedProduct.Product_quantity = ProductQuantity;
+            SelectedProduct.Measurement_system = MeasurementSystemIsChecked;
+        }
 
         private Product newProduct;
         public Product NewProduct { get => newProduct; set { newProduct = value; OnPropertyChanged(); } }
@@ -79,7 +94,9 @@ namespace AppCalorieCounter.ViewModel
             AppDbContext.EnsureDatabaseCreated();  //Создаем БД
             
             OBList = new ObservableCollection<Product>();
-            
+            EventHandlerPropertyChanged += Refreh;
+
+
             AddNewProductInDBCommand = new RelayCommand(
                 execute: () =>
                 {
@@ -92,12 +109,12 @@ namespace AppCalorieCounter.ViewModel
                 },
                 canExecute: () => true
                 );
-            //СhangerProducInDBCommand = new RelayCommand(
-            //    execute: () => 
-            //    //ChangerMethod(SelectedProduct),
-            //    canExecute: () =>  true
+            СhangerProducInDBCommand = new RelayCommand(
+                execute: () => ChangerMethod(SelectedProduct),
+                canExecute: () => true );
 
-                
+
+
 
 
 
