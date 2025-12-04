@@ -7,32 +7,20 @@
       "RelativeMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|solutionrelative:viewmodel\\viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|c:\\users\\pc\\desktop\\appcaloriecounter\\appcaloriecounter\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|c:\\users\\pc\\desktop\\appcaloriecounter\\appcaloriecounter\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|solutionrelative:view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|c:\\users\\pc\\desktop\\appcaloriecounter\\appcaloriecounter\\view\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|solutionrelative:view\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|c:\\users\\pc\\desktop\\appcaloriecounter\\appcaloriecounter\\viewmodel\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|solutionrelative:viewmodel\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|c:\\users\\pc\\desktop\\appcaloriecounter\\appcaloriecounter\\viewmodel\\command\\crud_db.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|solutionrelative:viewmodel\\command\\crud_db.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|c:\\users\\pc\\desktop\\appcaloriecounter\\appcaloriecounter\\view\\mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|solutionrelative:view\\mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|c:\\users\\pc\\desktop\\appcaloriecounter\\appcaloriecounter\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|solutionrelative:model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|c:\\users\\pc\\desktop\\appcaloriecounter\\appcaloriecounter\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|c:\\users\\pc\\desktop\\appcaloriecounter\\appcaloriecounter\\viewmodel\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA4D4818-CC7F-A72F-C8EA-DE5821975BE8}|AppCalorieCounter.csproj|solutionrelative:viewmodel\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,8 +29,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 414,
-          "SelectedChildIndex": 7,
+          "DockedWidth": 126,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -51,7 +39,13 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
+            }
+          ]
+        },
+        {
+          "DockedWidth": 768,
+          "SelectedChildIndex": 1,
+          "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 4,
@@ -60,60 +54,9 @@
               "RelativeDocumentMoniker": "ViewModel\\ViewModelBase.cs",
               "ToolTip": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\ViewModel\\ViewModelBase.cs",
               "RelativeToolTip": "ViewModel\\ViewModelBase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T15:36:41.685Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CRUD_DB.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\ViewModel\\Command\\CRUD_DB.cs",
-              "RelativeDocumentMoniker": "ViewModel\\Command\\CRUD_DB.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\ViewModel\\Command\\CRUD_DB.cs",
-              "RelativeToolTip": "ViewModel\\Command\\CRUD_DB.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAACuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T13:15:14.455Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\View\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "View\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\View\\MainWindow.xaml.cs",
-              "RelativeToolTip": "View\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T20:31:57.433Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\App.xaml",
-              "RelativeDocumentMoniker": "App.xaml",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\App.xaml",
-              "RelativeToolTip": "App.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-11-28T20:22:11.258Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T19:55:02.802Z",
+              "WhenOpened": "2025-12-04T15:37:56.548Z",
               "EditorCaption": ""
             },
             {
@@ -124,15 +67,28 @@
               "RelativeDocumentMoniker": "ViewModel\\ViewModel.cs",
               "ToolTip": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\ViewModel\\ViewModel.cs",
               "RelativeToolTip": "ViewModel\\ViewModel.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAowCAAAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAADsAAAAAAAAAAAAAwFcAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T15:27:01.97Z",
+              "WhenOpened": "2025-12-04T12:08:00.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CRUD_DB.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\ViewModel\\Command\\CRUD_DB.cs",
+              "RelativeDocumentMoniker": "ViewModel\\Command\\CRUD_DB.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\ViewModel\\Command\\CRUD_DB.cs",
+              "RelativeToolTip": "ViewModel\\Command\\CRUD_DB.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T15:55:19.838Z",
               "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 414,
+          "DockedWidth": 1039,
           "SelectedChildIndex": 0,
           "Children": [
             {
@@ -143,19 +99,20 @@
               "RelativeDocumentMoniker": "View\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\View\\MainWindow.xaml",
               "RelativeToolTip": "View\\MainWindow.xaml",
+              "ViewState": "AgIAABwAAAAAAAAAAAAwwE4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-11-25T12:59:30.961Z",
+              "WhenOpened": "2025-12-04T11:52:56.823Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\Model\\Product.cs",
               "RelativeDocumentMoniker": "Model\\Product.cs",
               "ToolTip": "C:\\Users\\PC\\Desktop\\AppCalorieCounter\\AppCalorieCounter\\Model\\Product.cs",
               "RelativeToolTip": "Model\\Product.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-28T18:08:50.531Z",
               "EditorCaption": ""

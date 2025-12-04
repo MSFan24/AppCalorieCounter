@@ -1,13 +1,15 @@
-﻿using System;
+﻿using AppCalorieCounter;
+using AppCalorieCounter.Data;
+using AppCalorieCounter.Model;
+using AppCalorieCounter.ViewModel.Command;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
-using AppCalorieCounter.Data;
-using AppCalorieCounter.Model;
-using AppCalorieCounter.ViewModel.Command;
-using AppCalorieCounter;
+using System.Xml.Linq;
+
 
 namespace AppCalorieCounter.ViewModel
 {
@@ -15,11 +17,15 @@ namespace AppCalorieCounter.ViewModel
     {
         #region Команды
         public ICommand AddNewProductInDBCommand { get; }
+
+        public  ICommand СhangerProducInDBCommand {  get; }
+
+
         #endregion
 
         #region Свойства и поля для передачи через Bindingi в Продукт
         private string productName;
-        public string ProductName { get => productName; set { productName = value; OnPropertyChanged(); } } 
+        public string ProductName { get => productName; set { productName = value; OnPropertyChanged(); } }
 
         private int productCallIn100;
         public int ProductCallIn100 { get => productCallIn100; set { productCallIn100 = value; OnPropertyChanged(); } }
@@ -34,8 +40,35 @@ namespace AppCalorieCounter.ViewModel
 
         #endregion
 
+        private Product selectedProduct;
+        public Product SelectedProduct 
+        { get => selectedProduct; 
+          set { selectedProduct = value; OnPropertyChanged(); }
+        }
 
 
+
+
+
+        //public void EmptyTextBoxs()//Очистка текбоксов после нажатия кнопки Добавить
+        //{
+        //    ProductName = null;
+        //    ProductCallIn100 = 0;
+        //    ProductQuantity = 0;
+        //    MeasurementSystemIsChecked = false;
+
+        //}
+
+        //public void ChangerMethod(Product SelectedProduct)
+        //{
+        //    ProductName = SelectedProduct.Name;
+        //    ProductCallIn100 = SelectedProduct.Caloric_in_100_units_of_mass;
+        //    ProductQuantity = SelectedProduct.Product_quantity;
+        //    MeasurementSystemIsChecked = SelectedProduct.Measurement_system;
+        //}
+
+        private Product newProduct;
+        public Product NewProduct { get => newProduct; set { newProduct = value; OnPropertyChanged(); } }
 
 
 
@@ -44,17 +77,27 @@ namespace AppCalorieCounter.ViewModel
         public ViewModel()
         {
             AppDbContext.EnsureDatabaseCreated();  //Создаем БД
-
+            
             OBList = new ObservableCollection<Product>();
-
+            
             AddNewProductInDBCommand = new RelayCommand(
                 execute: () =>
                 {
-                    CRUD_DB.CreateNewProduct(ProductName, ProductCallIn100, ProductQuantity, MeasurementSystemIsChecked, OBList);
+                    var newProduct = new Product(ProductName, ProductQuantity, ProductCallIn100, MeasurementSystemIsChecked);
+                    CRUD_DB.CreateNewProduct(newProduct, OBList);
+                    //OBList.Add(newProduct);
+
+
+                    //EmptyTextBoxs();
                 },
                 canExecute: () => true
                 );
+            //СhangerProducInDBCommand = new RelayCommand(
+            //    execute: () => 
+            //    //ChangerMethod(SelectedProduct),
+            //    canExecute: () =>  true
 
+                
 
 
 

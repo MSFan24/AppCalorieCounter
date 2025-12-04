@@ -23,6 +23,11 @@ namespace AppCalorieCounter
             InitializeComponent();
             //AppDbContext.EnsureDatabaseCreated();//Создаем БД
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
        
