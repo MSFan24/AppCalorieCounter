@@ -29,7 +29,7 @@
             <!--Вкладки 2-->
             <TabItem Header="Расчет калорий в продукте" >
                 <TabControl>
-                    <!--Вкладки 2.1 -->
+                    <!--Вкладки Обзор Мои продукты-->
                     <TabItem Header ="Обзор Мои продукты">
                         <Grid Background="Blue" Height="514">
                             <DataGrid  x:Name="DataGridName" AutoGenerateColumns="False" ItemsSource="{Binding OBProducts}" SelectedItem="{ Binding SelectedProduct}" Margin="0,-17,0,171">
@@ -38,7 +38,7 @@
                                     <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="35" IsReadOnly="True"/>
                                     <DataGridTextColumn Header="Продукт" Binding="{Binding Name}"  Width="*" IsReadOnly="True"/>
                                     <DataGridTextColumn Header="Каллорийность на 100 грамм/мл продукта" Binding="{Binding Caloric_in_100_units_of_mass}" IsReadOnly="True"  Width="*"/>
-                                    <DataGridTextColumn Header="Объем/масса продукта" Binding="{Binding Product_quantity }" Width="*" IsReadOnly="True"/>
+                                    <!--<DataGridTextColumn Header="Объем/масса продукта" Binding="{Binding Product_quantity }" Width="*" IsReadOnly="True"/>-->
                                     <DataGridTextColumn Header="Система измерения"  Width="130" Binding="{Binding Measurement_system}" IsReadOnly="True"/>
                                 </DataGrid.Columns>
                             </DataGrid>
@@ -51,8 +51,9 @@
                                 <TextBlock  Margin="215,21,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="200" Height="34" Text="Калорийность на 100 ..."  Background="LightSeaGreen" TextAlignment="Center"/>
                                 <TextBox  Text="{Binding ProductCallIn100, UpdateSourceTrigger=PropertyChanged}" Margin="215,76,0,0"  TextAlignment="Center"  Background="LightYellow" HorizontalAlignment="Left" Width="200" Height="30" VerticalAlignment="Top"/>
                                 <!--Объем/масса продукта -->
+                                <!--
                                 <TextBlock Margin="420,21,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="200" Height="34" Text="Объем/масса продукта" TextAlignment="Center"  Background="LightSeaGreen"/>
-                                <TextBox  Text="{Binding ProductQuantity, UpdateSourceTrigger=PropertyChanged}" Margin="420,76,0,0"  TextAlignment="Center"  Background="LightYellow" HorizontalAlignment="Left" Width="200" Height="30" VerticalAlignment="Top"/>
+                                <TextBox  Text="{Binding ProductQuantity, UpdateSourceTrigger=PropertyChanged}" Margin="420,76,0,0"  TextAlignment="Center"  Background="LightYellow" HorizontalAlignment="Left" Width="200" Height="30" VerticalAlignment="Top"/>-->
                                 <!--Система измерения -->
                                 <TextBlock Margin="625,21,0,96" HorizontalAlignment="Left"  Width="200" Height="34" TextAlignment="Center"  Background="LightSeaGreen"><Run Text="Система измерения"/><LineBreak/><Run/><Run Language="ru-ru" Text=" (по умолчанию в граммах)"/></TextBlock>
                                 <CheckBox IsChecked="{Binding MeasurementSystemIsChecked, UpdateSourceTrigger=PropertyChanged}" Content="Mл" Margin="705,81,0,0" Height="20" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" />
@@ -65,20 +66,23 @@
                         </Grid>
 
                     </TabItem>
+                    <!--Вкладки Выбранные продукты -->
                     <TabItem Header="Выбранные продукты">
                         <Grid>
                             <DataGrid Background="LightBlue" x:Name="DataGrid" AutoGenerateColumns="False" ItemsSource="{Binding OBSelektProduct}" SelectedItem="{ Binding SelectedProduct}" Margin="0,0,354,180">
                                 <DataGrid.Columns >
-
                                     <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="35" IsReadOnly="True"/>
                                     <DataGridTextColumn Header="Продукт" Binding="{Binding Name}"  Width="150" IsReadOnly="True"/>
                                     <DataGridTextColumn Header="Каллорийность на 100 грамм/мл продукта" Binding="{Binding Caloric_in_100_units_of_mass}" IsReadOnly="True"  Width="*"/>
                                     <DataGridTextColumn Header="Объем/масса продукта" Binding="{Binding Product_quantity }" Width="*" IsReadOnly="True"/>
-                                    <DataGridTextColumn Header="Система измерения"  Width="130" Binding="{Binding Measurement_system}" IsReadOnly="True"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Grid Background="Gold" Margin="0,380,0,0">
-
+                            </Grid>
+                            <Grid Background="Gold" Margin="639,0,0,185">
+                                <TextBlock Background="Red" Height="30" Width="300" Margin="0,51,0,0" Text="Введите количество употребляемого продукта " TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                                <TextBox Margin="0,91,0,0" Height="30" Width="300"  Text="{Binding ProductQuantity }" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Button Margin="0,136,0,0" Height="25" Width="300"  Content="Нажать" Command="{Binding Method_entering_caloric_content_in_productCommand}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                             </Grid>
                         </Grid>
                     </TabItem>
