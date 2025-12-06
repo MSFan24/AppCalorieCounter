@@ -32,22 +32,20 @@
                     <!--Вкладки 2.1 -->
                     <TabItem Header ="Обзор Мои продукты">
                         <Grid Background="Blue" Height="514">
-                            <DataGrid IsReadOnly="True" x:Name="DataGridName" AutoGenerateColumns="False" ItemsSource="{Binding OBList}" SelectedItem="{ Binding SelectedProduct}" Margin="0,-17,0,171">
+                            <DataGrid  x:Name="DataGridName" AutoGenerateColumns="False" ItemsSource="{Binding OBProducts}" SelectedItem="{ Binding SelectedProduct}" Margin="0,-17,0,171">
                                 <DataGrid.Columns >
-                                    <DataGridCheckBoxColumn Header="Выбрать" />
-                                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="35"/>
-                                    <DataGridTextColumn Header="Продукт" Binding="{Binding Name}"  Width="*"/>
-                                    <DataGridTextColumn Header="Каллорийность на 100 грамм/мл продукта" Binding="{Binding Caloric_in_100_units_of_mass}"  Width="*"/>
-                                    <DataGridTextColumn Header="Объем/масса продукта" Binding="{Binding Product_quantity }" Width="*"/>
-                                    <DataGridTextColumn Header="Система измерения"  Width="130" Binding="{Binding Measurement_system}"/>
+                                    <DataGridCheckBoxColumn Header="Выбрать" Binding="{Binding IsSelected}" />
+                                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="35" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="Продукт" Binding="{Binding Name}"  Width="*" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="Каллорийность на 100 грамм/мл продукта" Binding="{Binding Caloric_in_100_units_of_mass}" IsReadOnly="True"  Width="*"/>
+                                    <DataGridTextColumn Header="Объем/масса продукта" Binding="{Binding Product_quantity }" Width="*" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="Система измерения"  Width="130" Binding="{Binding Measurement_system}" IsReadOnly="True"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"><Run Text="Вкладка 2.1"/><LineBreak/><Run/></TextBlock>
-
                             <Grid Background="DarkOrchid" Margin="10,353,10,10">
-
                                 <!--Название продукта -->
-                                <TextBlock Margin="10,21,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="200" Height="34" Text="Название продукта" TextAlignment="Center"   Background="LightSeaGreen"/>
+                                <TextBlock  Margin="10,21,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="200" Height="34" Text="Название продукта" TextAlignment="Center"   Background="LightSeaGreen"/>
                                 <TextBox  Text="{Binding  ProductName, UpdateSourceTrigger=PropertyChanged}"  Margin="10,76,0,0"  TextAlignment="Center"  Background="LightYellow" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200"/>
                                 <!--Калорийность на 100 ... -->
                                 <TextBlock  Margin="215,21,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="200" Height="34" Text="Калорийность на 100 ..."  Background="LightSeaGreen" TextAlignment="Center"/>
@@ -61,11 +59,32 @@
                                 <!--Кнопки добавить изменить удалить продукт-->
                                 <Button Background="Bisque" Margin="10,0,758,10" Content="Добавить" Command="{Binding AddNewProductInDBCommand}" Height="30" VerticalAlignment="Bottom"/>
                                 <Button Background="Bisque" Margin="215,0,553,10" Content="Изменит" Command="{Binding СhangerProducInDBCommand}" Height="30" VerticalAlignment="Bottom" />
-                                <Button Background="Bisque" Margin="420,111,348,10" Height="30" Content="Удалить"/>
+                                <Button Background="Bisque" Margin="420,111,348,10" Height="30" Command="{Binding DeleteProducInDBCommand}" Content="Удалить"/>
+                                <Button Background="Bisque" Margin="625,111,10,10" Height="30" Command="{Binding Transferring_selected_products_to_another_table_Command}" Content="Перенести выбранные продукты в отдельную табоицу для расчетов"/>
+                            </Grid>
+                        </Grid>
+
+                    </TabItem>
+                    <TabItem Header="Выбранные продукты">
+                        <Grid>
+                            <DataGrid Background="LightBlue" x:Name="DataGrid" AutoGenerateColumns="False" ItemsSource="{Binding OBSelektProduct}" SelectedItem="{ Binding SelectedProduct}" Margin="0,0,354,180">
+                                <DataGrid.Columns >
+
+                                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="35" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="Продукт" Binding="{Binding Name}"  Width="150" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="Каллорийность на 100 грамм/мл продукта" Binding="{Binding Caloric_in_100_units_of_mass}" IsReadOnly="True"  Width="*"/>
+                                    <DataGridTextColumn Header="Объем/масса продукта" Binding="{Binding Product_quantity }" Width="*" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="Система измерения"  Width="130" Binding="{Binding Measurement_system}" IsReadOnly="True"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Grid Background="Gold" Margin="0,380,0,0">
+
                             </Grid>
                         </Grid>
                     </TabItem>
+
                 </TabControl>
+
             </TabItem>
             <!--Вкладки 3-->
             <TabItem Header="Расчет калорийности для целей">

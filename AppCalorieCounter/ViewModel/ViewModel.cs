@@ -9,6 +9,7 @@ using System.Diagnostics.Eventing.Reader;
 using System.Security.Policy;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Xml.Linq;
 
@@ -20,7 +21,9 @@ namespace AppCalorieCounter.ViewModel
         #region Команды
         public ICommand AddNewProductInDBCommand { get; }
 
-        public  ICommand СhangerProducInDBCommand {  get; }
+        public ICommand СhangerProducInDBCommand { get; }
+        public ICommand DeleteProducInDBCommand { get; }
+        public ICommand Transferring_selected_products_to_another_table_Command { get; }
 
 
         #endregion
@@ -37,45 +40,51 @@ namespace AppCalorieCounter.ViewModel
         private bool measurementSystemIsChecke;
         public bool MeasurementSystemIsChecked { get => measurementSystemIsChecke; set { measurementSystemIsChecke = value; OnPropertyChanged(); } }
 
-        private ObservableCollection<Product> oBList;
-        public ObservableCollection<Product> OBList { get => oBList; set { oBList = value; OnPropertyChanged(); } }
+        private ObservableCollection<Product> obProducts;
+        public ObservableCollection<Product> OBProducts { get => obProducts; set { obProducts = value; OnPropertyChanged(); } }
+
+        private ObservableCollection<Product> obSelektProductl;
+        public ObservableCollection<Product> OBSelektProduct { get => obSelektProductl; set { obSelektProductl = value; OnPropertyChanged(); } } // Коллекция для отсортированных продуктов с флагом выбран
 
         #endregion
 
         private Product selectedProduct;
         public Product SelectedProduct
-        { get => selectedProduct; 
-          set { selectedProduct = value; OnPropertyChanged(); OnselectedProductChanged(value); }
+        {
+            get => selectedProduct;
+            set { selectedProduct = value; OnPropertyChanged(); OnselectedProductChanged(value); }
         }
 
-       public event Action<Product> EventHandlerPropertyChanged;
+        public event Action<Product> EventHandlerPropertyChanged;
 
         protected virtual void OnselectedProductChanged(Product product)
         {
             EventHandlerPropertyChanged?.Invoke(product);
         }
 
-        //public void EmptyTextBoxs()//Очистка текбоксов после нажатия кнопки Добавить
-        //{
-        //    ProductName = null;
-        //    ProductCallIn100 = 0;
-        //    ProductQuantity = 0;
-        //    MeasurementSystemIsChecked = false;
+        public void EmptyTextBoxs()//Очистка текбоксов после нажатия кнопки Добавить
+        {
+            ProductName = null;
+            ProductCallIn100 = 0;
+            ProductQuantity = 0;
+            MeasurementSystemIsChecked = false;
 
-        //}
+        }
 
         public void Refreh(Product SelectedProduct) //Метод вызывается после того как генерируется событие EventHandlerPropertyChanged которое говорит что в свойство попал новый объект 
         {
             ProductName = SelectedProduct.Name;
             ProductCallIn100 = SelectedProduct.Caloric_in_100_units_of_mass;
             ProductQuantity = SelectedProduct.Product_quantity;
-            MeasurementSystemIsChecked = SelectedProduct.Measurement_system; 
+            MeasurementSystemIsChecked = SelectedProduct.Measurement_system;
         }
 
 
 
-        public void ChangerMethod(Product SelectedProduct)//Метод изменяет тексбоксы после нажатия на кнопку изменить
+        public void ChangerMethod(Product SelectedProduct, ObservableCollection<Product> observableCollection)//Метод изменяет тексбоксы после нажатия на кнопку изменить
         {
+            int CountUtems = observableCollection.Count;
+
             SelectedProduct.Name = ProductName;
             SelectedProduct.Caloric_in_100_units_of_mass = ProductCallIn100;
             SelectedProduct.Product_quantity = ProductQuantity;
@@ -85,15 +94,31 @@ namespace AppCalorieCounter.ViewModel
         private Product newProduct;
         public Product NewProduct { get => newProduct; set { newProduct = value; OnPropertyChanged(); } }
 
-
+        public void Method_transferring_selected_products_to_another_table(ObservableCollection<Product> OBProducts,ObservableCollection<Product> OBSelektProduct)
+        {
+            OBSelektProduct.Clear();
+            var SortProductsIsSelected = OBProducts.Where(p => p.IsSelected).ToList();
+            foreach( var p in SortProductsIsSelected)
+            {
+                OBSelektProduct.Add(p);
+            }
+            
+        }
 
 
 
         public ViewModel()
         {
             AppDbContext.EnsureDatabaseCreated();  //Создаем БД
-            
-            OBList = new ObservableCollection<Product>();
+
+            OBProducts = new ObservableCollection<Product> ();
+            OBProducts.Add(new Product(ProductName = "Мясо", ProductQuantity = 200, ProductCallIn100 = 100, measurementSystemIsChecke = true));
+            OBProducts.Add(new Product(ProductName = "Рыба", ProductQuantity = 100, ProductCallIn100 = 200, measurementSystemIsChecke = true));
+            OBProducts.Add(new Product(ProductName = "Творог", ProductQuantity = 50, ProductCallIn100 = 300, measurementSystemIsChecke = true));
+            OBProducts.Add(new Product(ProductName = "Масло", ProductQuantity = 500, ProductCallIn100 = 100, measurementSystemIsChecke = true));
+            OBProducts.Add(new Product(ProductName = "Яйцо", ProductQuantity = 600, ProductCallIn100 = 800, measurementSystemIsChecke = true));
+
+            OBSelektProduct = new ObservableCollection<Product>();
             EventHandlerPropertyChanged += Refreh;
 
 
@@ -101,20 +126,24 @@ namespace AppCalorieCounter.ViewModel
                 execute: () =>
                 {
                     var newProduct = new Product(ProductName, ProductQuantity, ProductCallIn100, MeasurementSystemIsChecked);
-                    CRUD_DB.CreateNewProduct(newProduct, OBList);
-                    //OBList.Add(newProduct);
-
-
-                    //EmptyTextBoxs();
+                    CRUD_DB.CreateNewProduct(newProduct, OBProducts);
+                    EmptyTextBoxs();
                 },
                 canExecute: () => true
                 );
             СhangerProducInDBCommand = new RelayCommand(
-                execute: () => ChangerMethod(SelectedProduct),
-                canExecute: () => true );
+                execute: () => ChangerMethod(SelectedProduct, OBProducts),
+                canExecute: () => true);
 
+            DeleteProducInDBCommand = new RelayCommand(
+                execute: () => { CRUD_DB.DeleteProduct(SelectedProduct, OBProducts); },
+                canExecute: () => true);
 
+            Transferring_selected_products_to_another_table_Command = new RelayCommand(
+                execute: () => { Method_transferring_selected_products_to_another_table(OBProducts, OBSelektProduct); },
+                canExecute: () => true  
 
+                );
 
 
 
