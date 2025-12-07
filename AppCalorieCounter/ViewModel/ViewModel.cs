@@ -2,17 +2,21 @@
 using AppCalorieCounter.Data;
 using AppCalorieCounter.Model;
 using AppCalorieCounter.ViewModel.Command;
+using LiveCharts;
+using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.Eventing.Reader;
+using System.Reflection.Emit;
 using System.Security.Policy;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Xml.Linq;
-
 
 namespace AppCalorieCounter.ViewModel
 {
@@ -40,30 +44,44 @@ namespace AppCalorieCounter.ViewModel
         private ObservableCollection<Product> obProducts;
         private ObservableCollection<Product> obSelektProductl;
 
-        public int ProductId { get => productId; set { productId = value; OnPropertyChanged(); } }
-        public string ProductName { get => productName; set { productName = value; OnPropertyChanged(); } }
-        public int ProductCallIn100 { get => productCallIn100; set { productCallIn100 = value; OnPropertyChanged(); } }
-        public int ProductQuantity { get => productQuantity; set { productQuantity = value; OnPropertyChanged(); } }
-        public bool MeasurementSystemIsChecked { get => measurementSystemIsChecke; set { measurementSystemIsChecke = value; OnPropertyChanged(); } }
-        public ObservableCollection<Product> OBProducts { get => obProducts; set { obProducts = value; OnPropertyChanged(); } }
-        public ObservableCollection<Product> OBSelektProduct { get => obSelektProductl; set { obSelektProductl = value; OnPropertyChanged(); } } // Коллекция для отсортированных продуктов с флагом выбран
+        public int ProductId
+        { get => productId; set { productId = value; OnPropertyChanged(); } }
+        public string ProductName
+        { get => productName; set { productName = value; OnPropertyChanged(); } }
+        public int ProductCallIn100
+        { get => productCallIn100; set { productCallIn100 = value; OnPropertyChanged(); } }
+        public int ProductQuantity
+        { get => productQuantity; set { productQuantity = value; OnPropertyChanged(); } }
+        public bool MeasurementSystemIsChecked
+        { get => measurementSystemIsChecke; set { measurementSystemIsChecke = value; OnPropertyChanged(); } }
+        public ObservableCollection<Product> OBProducts
+        { get => obProducts; set { obProducts = value; OnPropertyChanged(); } }
+        public ObservableCollection<Product> OBSelektProduct
+        { get => obSelektProductl; set { obSelektProductl = value; OnPropertyChanged(); } } // Коллекция для отсортированных продуктов с флагом выбран
         public Product SelectedProduct
         {
             get => selectedProduct;
             set { selectedProduct = value; OnPropertyChanged(); OnselectedProductChanged(value); }
         }
-        public Product NewProduct 
+        public Product NewProduct
         { get => newProduct; set { newProduct = value; OnPropertyChanged(); } }
 
+        #endregion
+
+        #region Круговая диаграмма
+        private SeriesCollection pieSeries;
+        public SeriesCollection PieSeries
+        { get => pieSeries; set { pieSeries = value; OnPropertyChanged(); } }
+        public ChartValues<double> Values1 { get; set; } = new ChartValues<double> { 20 };
 
         #endregion
+
 
         public event Action<Product> EventHandlerPropertyChanged;
         protected virtual void OnselectedProductChanged(Product product)
         {
             EventHandlerPropertyChanged?.Invoke(product);
         }
-
         public void EmptyTextBoxs()//Очистка текбоксов после нажатия кнопки Добавить
         {
             ProductName = null;
@@ -98,16 +116,45 @@ namespace AppCalorieCounter.ViewModel
             }
 
         }
-
-        public void Method_entering_caloric_content_in_product(Product SelectedProduct,int Product_quantity) 
+        public void Method_entering_caloric_content_in_product(Product SelectedProduct, int Product_quantity)
         {
 
-            SelectedProduct.Product_quantity= ProductQuantity;
+            SelectedProduct.Product_quantity = ProductQuantity;
         }
 
-        public ViewModel() 
+        public SeriesCollection Method_create_new_diagramPieCharts(SeriesCollection PieSeries, ObservableCollection<Product> OBSelektProduct)
         {
-            AppDbContext.EnsureDatabaseCreated();  //Создаем БД
+            var CountItems = OBSelektProduct.Count;
+            MessageBox.Show(CountItems.ToString());
+            PieSeries = new SeriesCollection();
+            foreach (var item in OBSelektProduct)
+            {
+
+                var t = new PieSeries
+                {
+                    Title = "Дней прошло",
+                    Values = Values1 = new ChartValues<double> { item.Caloric_in_100_units_of_mass }
+                };
+                PieSeries.Add(t);
+                }
+            
+            
+
+            return PieSeries;
+        }
+
+       
+
+
+
+
+
+
+
+
+        public ViewModel()
+        {
+            //AppDbContext.EnsureDatabaseCreated();  //Создаем БД
 
             OBProducts = new ObservableCollection<Product>();
             OBProducts.Add(new Product(ProductId = OBProducts.Count + 1, ProductName = "Мясо", ProductQuantity = 0, ProductCallIn100 = 100, measurementSystemIsChecke = true));
@@ -136,14 +183,44 @@ namespace AppCalorieCounter.ViewModel
     execute: () => { CRUD_DB.DeleteProduct(SelectedProduct, OBProducts); },
     canExecute: () => true);
             Transferring_selected_products_to_another_table_Command = new RelayCommand(
-    execute: () => { Method_transferring_selected_products_to_another_table(OBProducts, OBSelektProduct); },
-    canExecute: () => true
+            execute: () =>
+            {
+                Method_transferring_selected_products_to_another_table(OBProducts, OBSelektProduct);
+                PieSeries = Method_create_new_diagramPieCharts(PieSeries, OBSelektProduct);
+            },
+            canExecute: () => true
 
-    );
+            );//Перенос выбранных товаров в другую таблицу 
             Method_entering_caloric_content_in_productCommand = new RelayCommand(
                 execute: () => { Method_entering_caloric_content_in_product(SelectedProduct, ProductQuantity); },
                 canExecute: () => true
                 );
+
+
+            //CreatePieChart(10);
+
+
+            //PieSeries = new SeriesCollection
+            //{
+            //    new PieSeries
+            //    {
+            //        Title = "Дней прошло",
+            //        Values = Values1,
+            //        DataLabels = true,
+            //        Fill = System.Windows.Media.Brushes.Red,
+            //         LabelPoint = point => $"{point.Y} дней"
+            //    },
+            //    new PieSeries
+            //    {
+            //        Title = "Дней осталось",
+            //        Values = Values1,
+            //        DataLabels = true,
+            //        Fill = System.Windows.Media.Brushes.Green,
+            //         LabelPoint = point => $"{point.Y} дней"
+            //    }
+
+            //};
+
 
 
 

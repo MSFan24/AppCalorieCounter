@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppCalorieCounter"
         xmlns:vm="clr-namespace:AppCalorieCounter.ViewModel"
+        xmlns:lc1="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      
         mc:Ignorable="d"
         Title="Приложение по расчету каллорий" Height="650" Width="1000" WindowStartupLocation="CenterScreen" >
 
@@ -86,7 +88,13 @@
                             </Grid>
                         </Grid>
                     </TabItem>
-
+                    <TabItem Header="Диаграмма калорийности">
+                        <Grid>
+                            <lc1:PieChart Series="{Binding PieSeries }" >
+                                
+                            </lc1:PieChart>
+                        </Grid>
+                    </TabItem>
                 </TabControl>
 
             </TabItem>
