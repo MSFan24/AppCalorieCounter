@@ -38,7 +38,7 @@
                     <!--Вкладки Обзор Мои продукты-->
                     <TabItem Header ="Обзор Мои продукты">
                         <Grid Background="Blue" Height="514">
-                            <DataGrid  x:Name="DataGrid_1" AutoGenerateColumns="False" ItemsSource="{Binding OBProducts}" SelectedItem="{ Binding SelectedProductinDataGrid_1}" Margin="0,-17,0,171">
+                            <DataGrid  x:Name="DataGrid_1" AutoGenerateColumns="False" ItemsSource="{Binding OBProducts}" SelectedItem="{ Binding VM_SelectedProductinDataGrid_1}" Margin="0,-17,0,171">
                                 <DataGrid.Columns >
                                     <DataGridCheckBoxColumn Header="Выбрать" Binding="{Binding IsSelected}" />
                                     <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="35" IsReadOnly="True"/>

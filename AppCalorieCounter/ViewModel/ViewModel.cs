@@ -83,8 +83,10 @@ namespace AppCalorieCounter.ViewModel
         private Product vm_selectedProductinDataGrid_2;
         public Product VM_SelectedProductinDataGrid_2
         {
-            get => vm_selectedProductinDataGrid_1;
-            set { vm_selectedProductinDataGrid_1 = value; OnPropertyChanged(); 
+            get => vm_selectedProductinDataGrid_2;
+            set
+            {
+                vm_selectedProductinDataGrid_2 = value; OnPropertyChanged();
                 //OnselectedProductChanged(value); 
             }
         }
@@ -107,6 +109,16 @@ namespace AppCalorieCounter.ViewModel
         protected virtual void OnselectedProductChanged(Product product)
         {
             EventHandlerPropertyChanged?.Invoke(product);
+        }
+        public void MethodCreateNewProduct(Product product, ObservableCollection<Product> oblist,Product VM_SelectedProductinDataGrid_1)
+        {
+            VM_SelectedProductinDataGrid_1 = null;
+            var newProduct = new Product(VM_ProductId, VM_ProductName, VM_ProductQuantity, VM_ProductCallIn100, VM_MeasurementSystemIsChecked);
+            //   MessageBox.Show("Все работает кнопка Жим-Жим");
+            var CountItems = oblist.Count;
+
+            newProduct.Id = CountItems + 1;
+            oblist.Add(newProduct);
         }
         public void EmptyTextBoxs()//Очистка текбоксов после нажатия кнопки Добавить
         {
@@ -202,18 +214,27 @@ namespace AppCalorieCounter.ViewModel
             AddNewProductInDBCommand = new RelayCommand(
                 execute: () =>
                 {
-                    var newProduct = new Product(VM_ProductId, VM_ProductName, VM_ProductQuantity, VM_ProductCallIn100, VM_MeasurementSystemIsChecked);
-                    CRUD_DB.CreateNewProduct(newProduct, OBProducts);
-                    EmptyTextBoxs();
+                    
+                    MethodCreateNewProduct(newProduct, OBProducts, VM_SelectedProductinDataGrid_1);
+                    //EmptyTextBoxs();
                 },
                 canExecute: () => true
                 );
             СhangerProducInDBCommand = new RelayCommand(
                 execute: () => ChangerProductMethod(VM_SelectedProductinDataGrid_1),
-                canExecute: () => true);
+                canExecute: () =>
+                {
+                    if (vm_selectedProductinDataGrid_1 != null)
+                    { return true; }
+                    else
+                    {
+
+                        return false;
+                    }
+                });
             DeleteProducInDBCommand = new RelayCommand(
-    execute: () => { CRUD_DB.DeleteProduct(VM_SelectedProductinDataGrid_1, OBProducts); },
-    canExecute: () => true);
+                execute: () => { CRUD_DB.DeleteProduct(VM_SelectedProductinDataGrid_1, OBProducts); },
+                canExecute: () => true);
             Transferring_selected_products_to_another_table_Command = new RelayCommand(
             execute: () =>
             {
