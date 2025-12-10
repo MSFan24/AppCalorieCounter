@@ -35,8 +35,7 @@ namespace AppCalorieCounter.Model
                 product_quantity = value;
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(Caloric_in_100_units_of_mass));
-                MessageBox.Show($"Свойсво изменилось Product_quantity!{" " + product_quantity}"); 
-
+               
 
             }
         }
@@ -61,9 +60,7 @@ namespace AppCalorieCounter.Model
         public double Calories_in_1_gram_of_product
         {
             get => calories_in_1_gram_of_product;
-            set { calories_in_1_gram_of_product=value; OnPropertyChanged(); 
-                MessageBox.Show($"Свойсво изменилось Calories_in_1_gram_of_product!{" " + calories_in_1_gram_of_product}");
-            }
+            set { calories_in_1_gram_of_product=value; OnPropertyChanged(); }
 
 
         }
@@ -86,7 +83,7 @@ namespace AppCalorieCounter.Model
             Measurement_system = measurement_system;
             Calories_in_1_gram_of_product = (double)caloric_in_100_units_of_mass/100;
             Calories_in_product_of_specified_weight = 0;
-            MessageBox.Show($"Объект созданн Id: {Id}, name: {Name} ,Product_quantity: {Product_quantity} ,Caloric_in_100_units_of_mass: {Caloric_in_100_units_of_mass} Calories_in_1_gram_of_product:{Calories_in_1_gram_of_product}");
+            MessageBox.Show($"Продук создан Id: {Id}, name: {Name} ,Product_quantity: {Product_quantity} ,Caloric_in_100_units_of_mass: {Caloric_in_100_units_of_mass} Calories_in_1_gram_of_product: {Calories_in_1_gram_of_product}");
             // Number_calories_in_product_during_period = 0;
             //  Calories_in_product_of_specified_weight = 0;
 

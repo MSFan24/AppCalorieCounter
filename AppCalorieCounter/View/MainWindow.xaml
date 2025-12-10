@@ -8,7 +8,7 @@
         xmlns:lc1="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       
         mc:Ignorable="d"
-        Title="Приложение по расчету каллорий" Height="650" Width="1000" WindowStartupLocation="CenterScreen" >
+        Title="Приложение по расчету каллорий" Height="780" Width="1100" WindowStartupLocation="CenterScreen" >
 
     <Window.DataContext>
         <vm:ViewModel/>
@@ -24,11 +24,8 @@
         <TabControl Margin="0,18,0,0" >
             <!--Вкладки 1-->
             <TabItem Header="Стартовое меню"  >
-                <Grid Background="Green" Height="588" Margin="0,0,-1,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="232*"/>
-                        <ColumnDefinition Width="763*"/>
-                    </Grid.ColumnDefinitions>
+                <Grid Background="Green" Height="627" Margin="0,0,-1,0">
+
                     <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Text="Для того чтобы приступить к работе выберете одну из вкладок согласно вашим целям" Grid.ColumnSpan="2" Margin="217,0,0,0"/>
                 </Grid>
             </TabItem>
@@ -37,8 +34,8 @@
                 <TabControl>
                     <!--Вкладки Обзор Мои продукты-->
                     <TabItem Header ="Обзор Мои продукты">
-                        <Grid Background="Blue" Height="514">
-                            <DataGrid  x:Name="DataGrid_1" AutoGenerateColumns="False" ItemsSource="{Binding OBProducts}" SelectedItem="{ Binding VM_SelectedProductinDataGrid_1}" Margin="0,-17,0,171">
+                        <Grid Background="LemonChiffon" Height="647">
+                            <DataGrid  x:Name="DataGrid_1" AutoGenerateColumns="False" ItemsSource="{Binding OBProducts}" SelectedItem="{ Binding VM_SelectedProductinDataGrid_1}" Height="415" VerticalAlignment="Top">
                                 <DataGrid.Columns >
                                     <DataGridCheckBoxColumn Header="Выбрать" Binding="{Binding IsSelected}" />
                                     <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="35" IsReadOnly="True"/>
@@ -49,33 +46,34 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                             <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"><Run Text="Вкладка 2.1"/><LineBreak/><Run/></TextBlock>
-                            <Grid Background="DarkOrchid" Margin="10,353,10,10">
+                            <Grid Background="DarkOrchid" Margin="10,435,10,42">
                                 <!--Название продукта -->
-                                <TextBlock  Margin="10,21,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="200" Height="34" Text="Название продукта" TextAlignment="Center"   Background="LightSeaGreen"/>
+                                <TextBlock  Margin="0,0,858,115" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Width="200" Height="34" Text="Название продукта" TextAlignment="Center"   Background="LightSeaGreen"/>
                                 <TextBox  Text="{Binding  VM_ProductName, UpdateSourceTrigger=PropertyChanged}"  Margin="10,76,0,0"  TextAlignment="Center"  Background="LightYellow" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200"/>
                                 <!--Калорийность на 100 ... -->
-                                <TextBlock  Margin="215,21,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="200" Height="34" Text="Калорийность на 100 ..."  Background="LightSeaGreen" TextAlignment="Center"/>
-                                <TextBox  Text="{Binding VM_ProductCallIn100, UpdateSourceTrigger=PropertyChanged}" Margin="215,76,0,0"  TextAlignment="Center"  Background="LightYellow" HorizontalAlignment="Left" Width="200" Height="30" VerticalAlignment="Top"/>
+                                <TextBlock  Margin="215,0,0,115" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Width="200" Height="34" Text="Калорийность на 100 ..."  Background="LightSeaGreen" TextAlignment="Center"/>
+                                <TextBox  Text="{Binding VM_ProductCallIn100, UpdateSourceTrigger=PropertyChanged}" Margin="215,75,0,0"  TextAlignment="Center"  Background="LightYellow" HorizontalAlignment="Left" Width="200" Height="30" VerticalAlignment="Top"/>
                                 <!--Объем/масса продукта -->
                                 <!--
                                 <TextBlock Margin="420,21,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="200" Height="34" Text="Объем/масса продукта" TextAlignment="Center"  Background="LightSeaGreen"/>
                                 <TextBox  Text="{Binding ProductQuantity, UpdateSourceTrigger=PropertyChanged}" Margin="420,76,0,0"  TextAlignment="Center"  Background="LightYellow" HorizontalAlignment="Left" Width="200" Height="30" VerticalAlignment="Top"/>-->
                                 <!--Система измерения -->
-                                <TextBlock Margin="625,21,0,96" HorizontalAlignment="Left"  Width="200" Height="34" TextAlignment="Center"  Background="LightSeaGreen"><Run Text="Система измерения"/><LineBreak/><Run/><Run Language="ru-ru" Text=" (по умолчанию в граммах)"/></TextBlock>
-                                <CheckBox IsChecked="{Binding VM_MeasurementSystemIsChecked, UpdateSourceTrigger=PropertyChanged}" Content="Mл" Margin="705,81,0,0" Height="20" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                                <TextBlock Margin="420,21,0,0" HorizontalAlignment="Left"  Width="200" Height="34" TextAlignment="Center"  Background="LightSeaGreen" VerticalAlignment="Top"><Run Text="Система измерения"/><LineBreak/><Run/><Run Language="ru-ru" Text=" (по умолчанию в граммах)"/></TextBlock>
+                                <CheckBox IsChecked="{Binding VM_MeasurementSystemIsChecked, UpdateSourceTrigger=PropertyChanged}" Content="Mл" Margin="500,80,0,0" Height="20" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" />
                                 <!--Кнопки добавить изменить удалить продукт-->
-                                <Button Background="Bisque" Margin="10,0,758,10" Content="Добавить" Command="{Binding AddNewProductInDBCommand}" Height="30" VerticalAlignment="Bottom"/>
-                                <Button Background="Bisque" Margin="215,0,553,10" Content="Изменит" Command="{Binding СhangerProducInDBCommand}" Height="30" VerticalAlignment="Bottom" />
-                                <Button Background="Bisque" Margin="420,111,348,10" Height="30" Command="{Binding DeleteProducInDBCommand}" Content="Удалить"/>
-                                <Button Background="Bisque" Margin="625,111,10,10" Height="30" Command="{Binding Transferring_selected_products_to_another_table_Command}" Content="Перенести выбранные продукты в отдельную табоицу для расчетов"/>
+                                <Button Background="Bisque" Margin="10,0,858,10" Content="Добавить" Command="{Binding AddNewProductInDBCommand}" Height="30" VerticalAlignment="Bottom"/>
+                                <Button Background="Bisque" Margin="215,0,653,10" Content="Изменит" Command="{Binding СhangerProducInDBCommand}" Height="30" VerticalAlignment="Bottom" />
+                                <Button Background="Bisque" Margin="420,130,448,10" Height="30" Command="{Binding DeleteProducInDBCommand}" Content="Удалить"/>
+                                <Button Background="Bisque" Margin="625,130,10,10" Height="30" Command="{Binding Transferring_selected_products_to_another_table_Command}" Content="Перенести выбранные продукты в отдельную табоицу для расчетов"/>
                             </Grid>
+                            <TextBlock HorizontalAlignment="Left" Margin="10,618,0,0" TextWrapping="Wrap" Text="{Binding TexBlockProgress}" VerticalAlignment="Top" Height="19"  Width="414"/>
                         </Grid>
 
                     </TabItem>
                     <!--Вкладки Выбранные продукты -->
                     <TabItem Header="Выбранные продукты">
                         <Grid>
-                            <DataGrid Background="LightBlue" x:Name="DataGrid_2" AutoGenerateColumns="False" ItemsSource="{Binding OBSelektProduct}" SelectedItem="{ Binding VM_SelectedProductinDataGrid_2}" Margin="0,0,354,180">
+                            <DataGrid Background="LightBlue" x:Name="DataGrid_2" AutoGenerateColumns="False" ItemsSource="{Binding OBSelektProduct}" SelectedItem="{ Binding VM_SelectedProductinDataGrid_2}" Margin="0,0,354,159">
                                 <DataGrid.Columns >
                                     <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="35" IsReadOnly="True"/>
                                     <DataGridTextColumn Header="Продукт" Binding="{Binding Name}"  Width="60" IsReadOnly="True"/>
@@ -84,10 +82,10 @@
                                     <DataGridTextColumn Header="Калорийность объема продукта" Binding="{Binding Calories_in_product_of_specified_weight }" Width="*" IsReadOnly="True"/>
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <Grid Background="Gold" Margin="0,380,0,0">
-                                <Button Content="Построить диаграмму калорийности для выбранных продуктов" Command="{Binding Method_constructing_pie_chart_of_colorCommand}" Margin="244,33,244,42"/>
+                            <Grid Background="Gold" Margin="0,536,0,0">
+                                <Button Content="Построить диаграмму калорийности для выбранных продуктов" Command="{Binding Method_constructing_pie_chart_of_colorCommand}" Margin="244,33,244,24"/>
                             </Grid>
-                            <Grid Background="Gold" Margin="639,0,0,185">
+                            <Grid Background="Gold" Margin="739,21,0,159">
                                 <TextBlock Background="Red" Height="30" Width="300" Margin="0,51,0,0" Text="Введите количество употребляемого продукта " TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" />
                                 <TextBox   Margin="0,91,0,0" Height="30" Width="300"  Text="{Binding VM_ProductQuantity }" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center"/>
                                 <Button Margin="0,136,0,0" Height="25" Width="300"  Content="Нажать" Command="{Binding Method_entering_caloric_content_in_productCommand}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
