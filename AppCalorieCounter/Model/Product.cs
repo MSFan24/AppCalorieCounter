@@ -83,9 +83,8 @@ namespace AppCalorieCounter.Model
             Measurement_system = measurement_system;
             Calories_in_1_gram_of_product = (double)caloric_in_100_units_of_mass/100;
             Calories_in_product_of_specified_weight = 0;
-            MessageBox.Show($"Продук создан Id: {Id}, name: {Name} ,Product_quantity: {Product_quantity} ,Caloric_in_100_units_of_mass: {Caloric_in_100_units_of_mass} Calories_in_1_gram_of_product: {Calories_in_1_gram_of_product}");
-            // Number_calories_in_product_during_period = 0;
-            //  Calories_in_product_of_specified_weight = 0;
+           // MessageBox.Show($"Продук создан Id: {Id}, name: {Name} ,Product_quantity: {Product_quantity} ,Caloric_in_100_units_of_mass: {Caloric_in_100_units_of_mass} Calories_in_1_gram_of_product: {Calories_in_1_gram_of_product}");
+            
 
         }
 

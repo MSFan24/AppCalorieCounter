@@ -31,11 +31,13 @@ namespace AppCalorieCounter.ViewModel
         public ICommand Method_entering_caloric_content_in_productCommand { get; }
         public ICommand Method_constructing_pie_chart_of_colorCommand { get; }
 
+        public ICommand Add_Person_in_collaction {  get; }
+
 
         #endregion
 
 
-        #region Свойства и поля для передачи через Bindingi в Продукт
+        #region Свойства и поля для передачи через Binding в Продукт во вкладки Обзор Мои продуты,Выбранные продукты и диаграмма калорийности
 
         private int vm_productId;
         private string vm_productName;
@@ -76,8 +78,9 @@ namespace AppCalorieCounter.ViewModel
         { get => obSelektProductl; set { obSelektProductl = value; OnPropertyChanged(); } } // Коллекция для отсортированных продуктов с флагом выбран
 
         public string TexBlockProgress //Свойсво для отображения релузальтатов добавления продукта удаления продукта изминения продукта переноса выбранных продуктов
-        { get => texBlockProgress;
-        set { texBlockProgress = value; OnPropertyChanged(); }
+        {
+            get => texBlockProgress;
+            set { texBlockProgress = value; OnPropertyChanged(); }
         }
 
         public Product VM_SelectedProductinDataGrid_1
@@ -104,6 +107,70 @@ namespace AppCalorieCounter.ViewModel
         public SeriesCollection PieSeries
         { get => pieSeries; set { pieSeries = value; OnPropertyChanged(); } }
         public ChartValues<double> Values1 { get; set; } = new ChartValues<double> { 20 };
+
+        #endregion
+
+        #region Свойсва и поля для вкладки Расчет калорийности для целей
+
+        private string vm_TB_Name;
+        private int vm_TB_Weight;
+        private int vm_TB_Height;
+        private bool vm_TB_Gender;
+        private string vm_select_Gender;
+        private string vm__select_Leval_Activity;
+        private string vm_select_Desired_result;
+        private Person vm_selectPerson;
+
+        public string VM_TB_Name
+        {
+            get => vm_TB_Name; set { vm_TB_Name = value; OnPropertyChanged(); }
+        }
+        public int VM_TB_Weight
+        {
+            get => vm_TB_Weight; set { vm_TB_Weight = value; OnPropertyChanged(); }
+        }
+        public int VM_TB_Height
+        {
+            get => vm_TB_Height; set { vm_TB_Height = value; OnPropertyChanged(); }
+        }
+        public bool VM_TB_Gender
+        {
+            get => vm_TB_Gender;
+            set
+            {
+                vm_TB_Gender = value;
+                OnPropertyChanged();
+            }
+        }
+        public string VM_Select_Leval_Activity
+        { get => vm__select_Leval_Activity; set { vm__select_Leval_Activity = value; MessageBox.Show(value); OnPropertyChanged(); } }
+        public string VM_Select_Gender
+        { get => vm_select_Gender; set { vm_select_Gender = value; OnPropertyChanged(); } }
+        public string VM_Select_Desired_result 
+        { get => vm_select_Desired_result; set { vm_select_Desired_result = value;OnPropertyChanged(); } }
+        public List<string> VM_Desired_result { get; } = new List<string>() //Желаемы результат 
+        {
+            "Похудеть",
+            "Набраь мышечную массу",
+            "Удерживать вес"
+        }; 
+        public List<string> VM_Leval_Activity { get; } = new List<string>() //Уровень активности
+        {
+            "Малоподвижный (Нет тренировок)",
+            "Легкая активность (1 тренировка в неделю)",
+            "Средняя акивность (2-3 тренировка в неделю)",
+            "Тяжелая акивность (3-5 тренировка в неделю)",
+        };
+        public ObservableCollection<Person> OB_Person_Collection { get; set; } = new ObservableCollection<Person>();
+        public Person VM_SelectPerson 
+        {  get=> vm_selectPerson; set { vm_selectPerson = value;OnPropertyChanged(); } }
+
+        public void Method_Add_Person_in_Collection(ObservableCollection<Person> OB_Collection)
+        {
+            var newPerson = new Person(VM_TB_Name, VM_TB_Height, VM_TB_Weight, VM_TB_Gender, VM_Select_Leval_Activity, VM_Select_Desired_result);
+            OB_Collection.Add(newPerson);
+        }
+
 
         #endregion
 
@@ -174,7 +241,7 @@ namespace AppCalorieCounter.ViewModel
 
         public SeriesCollection Method_create_new_diagramPieCharts(SeriesCollection PieSeries, ObservableCollection<Product> OBSelektProduct)
         {
-            
+
             PieSeries = new SeriesCollection();
 
             int ir;
@@ -184,7 +251,9 @@ namespace AppCalorieCounter.ViewModel
                 ir = item.Id;
                 var t = new PieSeries
                 {
-                    Title = $"{item.Name}",
+                    DataLabels = false,
+                    LabelPosition = PieLabelPosition.OutsideSlice,
+                    Title = $"Продукт {item.Name + " — " + item.Calories_in_product_of_specified_weight} кк",
                     Values = Values1 = new ChartValues<double> { item.Calories_in_product_of_specified_weight }
                 };
                 PieSeries.Add(t);
@@ -236,7 +305,7 @@ namespace AppCalorieCounter.ViewModel
             DeleteProducInDBCommand = new RelayCommand(
                 execute: () => { CRUD_DB.DeleteProduct(VM_SelectedProductinDataGrid_1, OBProducts); TexBlockProgress = $"Продукт{VM_SelectedProductinDataGrid_1.Name} удален!"; },
                 canExecute: () => true);
-           
+
             Transferring_selected_products_to_another_table_Command = new RelayCommand(
             execute: () =>
             {
@@ -248,7 +317,7 @@ namespace AppCalorieCounter.ViewModel
             );//Перенос выбранных товаров в другую таблицу 
             #endregion
 
-
+            #region DataGrid_2
             Method_entering_caloric_content_in_productCommand = new RelayCommand(
                 execute: () => { Method_entering_caloric_content_in_product(VM_SelectedProductinDataGrid_2); },
                 canExecute: () => //Проверка чтобы был выбран продукт
@@ -267,10 +336,21 @@ namespace AppCalorieCounter.ViewModel
                 execute: () => { Method_constructing_pie_chart_of_color(); },
                 canExecute: () => true
                 );
+            #endregion
+
+            #region DataGrid Пользователи
+            Add_Person_in_collaction = new RelayCommand(
+                execute: () => { Method_Add_Person_in_Collection(OB_Person_Collection); },
+                canExecute: () => true
+                );
+            #endregion
+
+
+
 
         }
 
-       
+
     }
 }
 

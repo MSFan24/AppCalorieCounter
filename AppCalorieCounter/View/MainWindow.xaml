@@ -48,20 +48,20 @@
                             <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"><Run Text="Вкладка 2.1"/><LineBreak/><Run/></TextBlock>
                             <Grid Background="DarkOrchid" Margin="10,435,10,42">
                                 <!--Название продукта -->
-                                <TextBlock  Margin="0,0,858,115" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Width="200" Height="34" Text="Название продукта" TextAlignment="Center"   Background="LightSeaGreen"/>
+                                <TextBlock  Margin="10,21,858,115" Text="Название продукта" TextAlignment="Center"   Background="LightSeaGreen"/>
                                 <TextBox  Text="{Binding  VM_ProductName, UpdateSourceTrigger=PropertyChanged}"  Margin="10,76,0,0"  TextAlignment="Center"  Background="LightYellow" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200"/>
                                 <!--Калорийность на 100 ... -->
-                                <TextBlock  Margin="215,0,0,115" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Width="200" Height="34" Text="Калорийность на 100 ..."  Background="LightSeaGreen" TextAlignment="Center"/>
-                                <TextBox  Text="{Binding VM_ProductCallIn100, UpdateSourceTrigger=PropertyChanged}" Margin="215,75,0,0"  TextAlignment="Center"  Background="LightYellow" HorizontalAlignment="Left" Width="200" Height="30" VerticalAlignment="Top"/>
+                                <TextBlock  Margin="215,21,0,115" HorizontalAlignment="Left"  Width="200" Text="Калорийность на 100 ..."  Background="LightSeaGreen" TextAlignment="Center"/>
+                                <TextBox  Text="{Binding VM_ProductCallIn100, UpdateSourceTrigger=PropertyChanged}" Margin="215,76,653,64"  TextAlignment="Center"  Background="LightYellow"/>
                                 <!--Объем/масса продукта -->
                                 <!--
                                 <TextBlock Margin="420,21,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="200" Height="34" Text="Объем/масса продукта" TextAlignment="Center"  Background="LightSeaGreen"/>
                                 <TextBox  Text="{Binding ProductQuantity, UpdateSourceTrigger=PropertyChanged}" Margin="420,76,0,0"  TextAlignment="Center"  Background="LightYellow" HorizontalAlignment="Left" Width="200" Height="30" VerticalAlignment="Top"/>-->
                                 <!--Система измерения -->
-                                <TextBlock Margin="420,21,0,0" HorizontalAlignment="Left"  Width="200" Height="34" TextAlignment="Center"  Background="LightSeaGreen" VerticalAlignment="Top"><Run Text="Система измерения"/><LineBreak/><Run/><Run Language="ru-ru" Text=" (по умолчанию в граммах)"/></TextBlock>
+                                <TextBlock Margin="420,21,448,0" Height="34" TextAlignment="Center"  Background="LightSeaGreen" VerticalAlignment="Top"><Run Text="Система измерения"/><LineBreak/><Run/><Run Language="ru-ru" Text=" (по умолчанию в граммах)"/></TextBlock>
                                 <CheckBox IsChecked="{Binding VM_MeasurementSystemIsChecked, UpdateSourceTrigger=PropertyChanged}" Content="Mл" Margin="500,80,0,0" Height="20" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" />
                                 <!--Кнопки добавить изменить удалить продукт-->
-                                <Button Background="Bisque" Margin="10,0,858,10" Content="Добавить" Command="{Binding AddNewProductInDBCommand}" Height="30" VerticalAlignment="Bottom"/>
+                                <Button Background="Bisque" Margin="10,130,858,10" Content="Добавить" Command="{Binding AddNewProductInDBCommand}"/>
                                 <Button Background="Bisque" Margin="215,0,653,10" Content="Изменит" Command="{Binding СhangerProducInDBCommand}" Height="30" VerticalAlignment="Bottom" />
                                 <Button Background="Bisque" Margin="420,130,448,10" Height="30" Command="{Binding DeleteProducInDBCommand}" Content="Удалить"/>
                                 <Button Background="Bisque" Margin="625,130,10,10" Height="30" Command="{Binding Transferring_selected_products_to_another_table_Command}" Content="Перенести выбранные продукты в отдельную табоицу для расчетов"/>
@@ -95,7 +95,7 @@
                     <TabItem Header="Диаграмма калорийности">
                         <Grid>
                             <TextBlock Margin="394,15,354,460" TextWrapping="Wrap" TextAlignment="Center" LineHeight="11" ><Run Language="ru-ru" Text="Нормальная среднесуточная калорийнось обычного человека = 2000 кк.Привышение этого показателя видет к повышению веса"/></TextBlock>
-                            <lc1:PieChart StartingRotationAngle="0" LegendLocation="Bottom" Series="{Binding PieSeries }" Margin="314,105,274,105" />
+                            <lc1:PieChart StartingRotationAngle="0"  LegendLocation="Bottom" Series="{Binding PieSeries }" Margin="314,105,274,105" />
 
 
                         </Grid>
@@ -104,10 +104,52 @@
 
             </TabItem>
             <!--Вкладки 3-->
-            <TabItem Header="Расчет калорийности для целей">
-                <Grid Background="Red">
-                    <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" Text="Вкладка 3"/>
-                </Grid>
+            <TabItem Header="Расчет калорийности для целей" >
+                <TabControl>
+                    <!--Вкладки 3.1-->
+                    <TabItem Header="Вкладка Добавление пользователя" >
+                        <Grid Background="LightSalmon">
+
+                            <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" Text="Вкладка 3"/>
+                            <!-- Имя-->
+                            <TextBlock   HorizontalAlignment="Left" Margin="20,521,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFC2D611" Width="169" TextAlignment="Center" Height="36"><Run Language="ru-ru" Text="Имя"/></TextBlock>
+                            <TextBox Text="{Binding VM_TB_Name}" HorizontalAlignment="Left" Margin="20,562,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="169"/>
+                            <!-- Вес-->
+                            <TextBlock  HorizontalAlignment="Left" Margin="199,521,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFC2D611" Width="169" TextAlignment="Center" Height="36"><Run Language="ru-ru" Text="Вес"/></TextBlock>
+                            <TextBox Text="{Binding VM_TB_Weight}" HorizontalAlignment="Left" Margin="199,562,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169"/>
+                            <!-- Рост-->
+                            <TextBlock   HorizontalAlignment="Left" Margin="379,521,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFC2D611" Width="169" TextAlignment="Center" Height="36"><Run Language="ru-ru" Text="Рост"/></TextBlock>
+                            <TextBox Text="{Binding VM_TB_Height}" HorizontalAlignment="Left" Margin="379,562,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="169"/>
+                            <!-- Пол-->
+                            <TextBlock HorizontalAlignment="Left" Margin="559,521,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFC2D611" Width="169" Height="36" TextAlignment="Center"><Run Language="ru-ru" Text="Пол (ПО УОЛЧАНИЮ ВЫБРАН М)"/><LineBreak/><Run Language="ru-ru"/></TextBlock>
+                            <CheckBox Content="М/Ж" IsChecked="{Binding VM_TB_Gender}" HorizontalAlignment="Left" Margin="559,565,0,0" VerticalAlignment="Top" Width="169"/>
+                            <!-- Уровень активности-->
+                            <TextBlock HorizontalAlignment="Left" Margin="733,521,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFC2D611" Width="169" Height="37" Text="Уровень активности" TextAlignment="Center"/>
+                            <ComboBox ItemsSource="{Binding VM_Leval_Activity}" SelectedItem="{Binding VM_Select_Leval_Activity}" HorizontalAlignment="Left" Margin="733,564,0,0" VerticalAlignment="Top" Width="169" Height="25"/>
+                            <!--Желаемый резульат-->
+                            <TextBlock HorizontalAlignment="Left" Margin="907,521,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFC2D611" Width="169" Height="37" Text="Желаемый результат" TextAlignment="Center"/>
+                            <ComboBox HorizontalAlignment="Left" Margin="907,564,0,0" ItemsSource="{Binding VM_Desired_result}" SelectedItem="{Binding VM_Select_Desired_result}" VerticalAlignment="Top" Width="169" Height="25"/>
+                            <!--Добавить человека-->
+                            <Button Margin="20,611,899,14" Content="Добавиь человека" Command="{Binding Add_Person_in_collaction}"/>
+                            <!--DataGrid-->
+                            <DataGrid  ItemsSource="{Binding OB_Person_Collection}" SelectedItem="{Binding VM_SelectPerson}" Margin="0,0,0,254">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Name}" Header="Имя" Width="100"/>
+                                    <DataGridTextColumn Binding="{Binding Weight}" Header="Вес" Width="100"/>
+                                    <DataGridTextColumn Binding="{Binding Height}" Header="Рост" Width="100"/>
+                                    <DataGridTextColumn Binding="{Binding Gender}" Header="Пол" Width="100"/>
+                                    <DataGridTextColumn Binding="{Binding Leval_Activity}" Header="Уровень активности" Width="150"/>
+                                    <DataGridTextColumn Binding="{Binding Desired_result}" Header="Желаемый результат" Width="150"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                        </Grid>
+                    </TabItem>
+                    <!--Вкладки 3.2-->
+                    <TabItem Header="новая вкладка 2">
+
+                    </TabItem>
+                </TabControl>
             </TabItem>
         </TabControl>
     </Grid>
